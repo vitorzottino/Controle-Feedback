@@ -16,7 +16,7 @@ public class ListFb {
     }
 
     private Node head, end;
-    private String dataNovo, dataHead, dataAux;
+    private String dataNovo, dataHead;
 
     public boolean isEmpty() {
         if (head == null && end == null)
@@ -45,11 +45,11 @@ public class ListFb {
                 head = n.next;
             } else {
                 Node aux = head;
-                dataAux = dateFormat.format(aux.fb.getDataEntrada());
+                
                 
                 boolean found = false;
                 while (aux.next != null && !found) {
-                    if (dataAux.compareTo(dataNovo) <  0) {
+                    if (aux.next.fb.getDataEntrada().compareTo(n.fb.getDataEntrada()) < 0) {
                         aux = aux.next;
 
                     } else
