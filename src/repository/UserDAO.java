@@ -2,7 +2,10 @@ package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import connection.ConnectionFactory;
 import model.User;
@@ -17,27 +20,47 @@ public class UserDAO {
     }
 
     public void insert(User user) throws SQLException{
-        String sql = "INSERT INTO tb_usuarios_fb (id_user, nome, email, senha, estado, idade, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tb_usuarios_fb (nome, senha, admin) VALUES (?, ?, ?)";
         PreparedStatement ps = conexao.prepareStatement(sql);
-        ps.setString(2, user.getNome());
-        ps.setString(3, user.getEmail());
-        ps.setString(4, user.getSenha());
-        ps.setString(5, user.getEndereco());
-        ps.setInt(6, user.getIdade());
-        ps.setBoolean(7, user.getAdmin());
+        ps.setString(1, user.getNome());
+        ps.setString(2, user.getSenha());
+        ps.setString(3, user.getAdmin());
         ps.execute();
         ps.close();
 
     }
 
     public void delete (int id) throws SQLException{
-        String sql = "DELETE FROM tb_usuario_fb WHERE id_user = ?";
+        String sql = "DELETE FROM tb_usuarios_fb WHERE id_user = ?";
         PreparedStatement ps = conexao.prepareStatement(sql);
         ps.setInt(1, id);
         ps.execute();
         ps.close();
 
     }  
+
+    public List<User> selectAll() {
+		List<User> usuarios = new ArrayList<User>();
+		String sql = "select * from tb_usuarios_fb order by id_user";
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				User usuario = new User();
+				usuario.setId(rs.getInt("id_user"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSenha(rs.getString("senha"));
+                usuario.setAdmin(rs.getString("admin"));
+				usuarios.add(usuario);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return usuarios;
+	}
 
   
 }

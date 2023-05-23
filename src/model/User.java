@@ -1,5 +1,7 @@
 package model;
 
+import util.CriptoSenha;
+
 public class User {
     
     private int id;
@@ -8,7 +10,7 @@ public class User {
     private String senha;
     private String endereco;
     private int idade;
-    private boolean admin;
+    private String admin;
 
 
     public User() {
@@ -44,7 +46,11 @@ public class User {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        try {
+            this.senha = CriptoSenha.criptografar(senha);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String getEndereco() {
@@ -63,15 +69,11 @@ public class User {
         this.idade = idade;
     }
 
-    public boolean isAdmin() {
+    public String getAdmin() {
         return this.admin;
     }
 
-    public boolean getAdmin() {
-        return this.admin;
-    }
-
-    public void setAdmin(boolean admin) {
+    public void setAdmin(String admin) {
         this.admin = admin;
     }
 

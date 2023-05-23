@@ -1,11 +1,14 @@
 package app;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 import lists.ListFb;
 import model.Feedback;
+import model.User;
 import repository.FeedbackDAO;
+import repository.UserDAO;
 
 public class App {
 
@@ -13,6 +16,7 @@ public class App {
 
         Scanner input = new Scanner(System.in);
         FeedbackDAO daoFb = new FeedbackDAO();
+        UserDAO daoUser = new UserDAO();
 
         int opcao = 0;
 
@@ -20,6 +24,8 @@ public class App {
             System.out.println("MENU");
             System.out.println("1 - Cadastrar feedback");
             System.out.println("2 - Ler Feedbacks");
+            System.out.println("3 - Criar Usuario");
+            System.out.println("4 - Listar Usuarios");
             opcao = input.nextInt();
 
             switch (opcao) {
@@ -41,6 +47,29 @@ public class App {
                 case 2:
                     ListFb fbList = daoFb.selectAll();
                     fbList.show();
+
+                    break;
+
+                case 3:
+                    User user = new User();
+                    System.out.print("Informe o Nome: ");
+                    input.nextLine();
+                    user.setNome(input.next());
+                    System.out.print("Informe a senha: ");
+                    input.nextLine();
+                    user.setSenha(input.next());
+                    System.out.println("ADMIN? Y- sim / N - nao");
+                    user.setAdmin(input.next());
+                    daoUser.insert(user);
+                    break;
+
+                case 4:
+                    List<User> userList = daoUser.selectAll();
+                    for (User user2 : userList) {
+                        System.out.println("ID: " + user2.getId());
+                        System.out.println("Nome: " + user2.getNome());
+                        System.out.println("Senha: " + user2.getSenha());
+                    }
 
                     break;
 
