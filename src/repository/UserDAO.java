@@ -7,39 +7,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionFactory;
+import connection.ConnectionPool;
 import model.User;
 
 public class UserDAO {
 
-    private Connection conexao;
+	private Connection conexao;
 
-    public UserDAO() {
-        
-        this.conexao = new ConnectionFactory().conectar();
-    }
+	public UserDAO() throws SQLException {
 
-    public void insert(User user) throws SQLException{
-        String sql = "INSERT INTO tb_usuarios_fb (nome, senha, admin) VALUES (?, ?, ?)";
-        PreparedStatement ps = conexao.prepareStatement(sql);
-        ps.setString(1, user.getNome());
-        ps.setString(2, user.getSenha());
-        ps.setString(3, user.getAdmin());
-        ps.execute();
-        ps.close();
+		this.conexao = ConnectionPool.conectar();
+	}
 
-    }
+	public void insert(User user) throws SQLException {
+		String sql = "INSERT INTO tb_usuarios_fb (nome, senha, admin) VALUES (?, ?, ?)";
+		PreparedStatement ps = conexao.prepareStatement(sql);
+		ps.setString(1, user.getNome());
+		ps.setString(2, user.getSenha());
+		ps.setString(3, user.getAdmin());
+		ps.execute();
+		ps.close();
 
-    public void delete (int id) throws SQLException{
-        String sql = "DELETE FROM tb_usuarios_fb WHERE id_user = ?";
-        PreparedStatement ps = conexao.prepareStatement(sql);
-        ps.setInt(1, id);
-        ps.execute();
-        ps.close();
+	}
 
-    }  
+	public void delete(int id) throws SQLException {
+		String sql = "DELETE FROM tb_usuarios_fb WHERE id_user = ?";
+		PreparedStatement ps = conexao.prepareStatement(sql);
+		ps.setInt(1, id);
+		ps.execute();
+		ps.close();
 
-    public List<User> selectAll() {
+	}
+
+	public List<User> selectAll() {
 		List<User> usuarios = new ArrayList<User>();
 		String sql = "select * from tb_usuarios_fb order by id_user";
 		try {
@@ -51,7 +51,7 @@ public class UserDAO {
 				usuario.setId(rs.getInt("id_user"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSenha(rs.getString("senha"));
-                usuario.setAdmin(rs.getString("admin"));
+				usuario.setAdmin(rs.getString("admin"));
 				usuarios.add(usuario);
 			}
 			rs.close();
@@ -62,5 +62,4 @@ public class UserDAO {
 		return usuarios;
 	}
 
-  
 }

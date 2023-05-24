@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import connection.ConnectionFactory;
+
+import connection.ConnectionPool;
 import lists.ListFb;
 import model.Feedback;
 
@@ -13,8 +14,8 @@ public class FeedbackDAO {
 
     private Connection conexao;
 
-    public FeedbackDAO() {
-        this.conexao = new ConnectionFactory().conectar();
+    public FeedbackDAO() throws SQLException {
+        this.conexao = ConnectionPool.conectar();
     }
 
     public void insert(Feedback fb) throws SQLException {
