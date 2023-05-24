@@ -12,11 +12,11 @@ import model.User;
 
 public class UserDAO {
 
-	private Connection conexao;
+	private static Connection conexao;
 
 	public UserDAO() throws SQLException {
 
-		this.conexao = ConnectionPool.conectar();
+		UserDAO.conexao = ConnectionPool.conectar();
 	}
 
 	public void insert(User user) throws SQLException {
@@ -39,7 +39,7 @@ public class UserDAO {
 
 	}
 
-	public List<User> selectAll() {
+	public  List<User> selectAll() {
 		List<User> usuarios = new ArrayList<User>();
 		String sql = "select * from tb_usuarios_fb order by id_user";
 		try {

@@ -13,7 +13,7 @@ public class Feedback {
     protected String motivo;
     protected String assunto;
     protected String conteudo;
-    protected String status;
+    protected String status = "Aberto";
     public DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss:ms");
 
     public Feedback() {
