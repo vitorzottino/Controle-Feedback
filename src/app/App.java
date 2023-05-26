@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import lists.ListFb;
 import model.Feedback;
 import model.User;
 import repository.FeedbackDAO;
@@ -45,8 +44,15 @@ public class App {
                     break;
 
                 case 2:
-                    ListFb fbList = daoFb.selectAll();
-                    fbList.show();
+                    List<Feedback> fbList = daoFb.selectAll();
+                    for (Feedback feedback : fbList) {
+                    	System.out.println("ID: " + feedback.getId());
+                    	System.out.println("Motivo: " + feedback.getMotivo());
+                    	System.out.println("Assunto: " + feedback.getAssunto());
+                    	System.out.println("Mensagem: " + feedback.getConteudo());
+                    	System.out.println("Data Entrada: " + feedback.getDataEntrada());
+						
+					}
 
                     break;
 

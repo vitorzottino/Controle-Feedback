@@ -24,6 +24,10 @@ import repository.FeedbackDAO;
 
 public class Cadastro extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField assuntoTxt;
 	private FeedbackDAO dao = new FeedbackDAO();
@@ -41,6 +45,7 @@ public class Cadastro extends JFrame {
 		});
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Cadastro() throws SQLException {
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +53,7 @@ public class Cadastro extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-
+		setResizable(false);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -68,9 +73,9 @@ public class Cadastro extends JFrame {
 		assuntoTxt.setBounds(105, 157, 223, 20);
 		contentPane.add(assuntoTxt);
 
-		JComboBox motivoBox = new JComboBox();
+		JComboBox<String> motivoBox = new JComboBox<String>();
 		motivoBox.setMaximumRowCount(2);
-		motivoBox.setModel(new DefaultComboBoxModel(new String[] { "RECLAMACAO", "SUGESTAO" }));
+		motivoBox.setModel(new DefaultComboBoxModel(new String[] { "Reclamacao", "Sugestao" }));
 		motivoBox.setFont(new Font("SansSerif", Font.BOLD, 11));
 		motivoBox.setBounds(105, 78, 223, 29);
 		contentPane.add(motivoBox);
@@ -122,6 +127,17 @@ public class Cadastro extends JFrame {
 		});
 		enviarBtn.setBounds(105, 370, 223, 23);
 		contentPane.add(enviarBtn);
+		
+		JButton btnVoltar = new JButton("VOLTAR");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Menu().setVisible(true);
+				dispose();
+			}
+		});
+		btnVoltar.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnVoltar.setBounds(105, 404, 223, 23);
+		contentPane.add(btnVoltar);
 
 	}
 }

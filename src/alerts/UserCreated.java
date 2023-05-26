@@ -4,8 +4,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,10 +11,14 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import view.Cadastro;
+import view.Menu;
 
 public class UserCreated extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	public static void main(String[] args) {
@@ -52,20 +54,14 @@ public class UserCreated extends JFrame {
 		JButton voltarBtn = new JButton("VOLTAR ");
 		voltarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new Cadastro().setVisible(true);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+
+				new Menu().setVisible(true);
 				dispose();
 			}
 		});
 		voltarBtn.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		voltarBtn.setBounds(50, 100, 85, 25);
 		contentPane.add(voltarBtn);
-		
-		
 
 		JLabel lblObrigado = new JLabel("OBRIGADO!");
 		lblObrigado.setHorizontalAlignment(SwingConstants.CENTER);

@@ -10,7 +10,8 @@ public class ConnectionPool {
 	private static String ORACLE = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
 	private static DataSource conexao = null;
 
-	
+	//rm93345
+	//071103
 	private ConnectionPool() {
 
 	}
