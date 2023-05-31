@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class Menu extends JFrame {
 
@@ -33,8 +34,10 @@ public class Menu extends JFrame {
 
 	
 	public Menu() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/imgs/dashico.png")));
+		setTitle("Home");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 308, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
@@ -54,7 +57,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(170, 105, 120, 25);
+		btnNewButton.setBounds(65, 30, 153, 69);
 		contentPane.add(btnNewButton);
 		
 		JButton btnDashboard = new JButton("DASHBOARD");
@@ -69,7 +72,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnDashboard.setBounds(170, 141, 120, 25);
+		btnDashboard.setBounds(65, 123, 153, 69);
 		contentPane.add(btnDashboard);
 	}
 }

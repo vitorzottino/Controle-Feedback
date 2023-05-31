@@ -25,6 +25,7 @@ import repository.FeedbackDAO;
 import javax.swing.border.LineBorder;
 import javax.swing.ListSelectionModel;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class Dashboard extends JFrame {
 
@@ -62,6 +63,8 @@ public class Dashboard extends JFrame {
 	}
 
 	public Dashboard() throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/imgs/dashico.png")));
+		setTitle("Feedbacks");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 724, 500);
 		contentPane = new JPanel();

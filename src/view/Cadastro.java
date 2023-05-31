@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 import alerts.UserCreated;
 import model.Feedback;
 import repository.FeedbackDAO;
+import java.awt.Toolkit;
 
 public class Cadastro extends JFrame {
 
@@ -47,6 +48,7 @@ public class Cadastro extends JFrame {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Cadastro() throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/imgs/dashico.png")));
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 500);
