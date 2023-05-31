@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
+import java.awt.Font;
+import java.awt.Color;
 
 public class Menu extends JFrame {
 
@@ -39,6 +41,7 @@ public class Menu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 308, 272);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -46,6 +49,8 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("CADASTRAR");
+		btnNewButton.setBackground(new Color(240, 240, 240));
+		btnNewButton.setFont(new Font("SansSerif", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -61,6 +66,9 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnDashboard = new JButton("DASHBOARD");
+		btnDashboard.setBackground(new Color(240, 240, 240));
+		btnDashboard.setFont(new Font("SansSerif", Font.BOLD, 12));
+		
 		btnDashboard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

@@ -19,12 +19,13 @@ public class App {
 
         int opcao = 0;
 
-        while (opcao != 4) {
+        while (opcao != 5) {
             System.out.println("MENU");
             System.out.println("1 - Cadastrar feedback");
             System.out.println("2 - Ler Feedbacks");
             System.out.println("3 - Criar Usuario");
             System.out.println("4 - Listar Usuarios");
+            System.out.println("5 - Sair");
             opcao = input.nextInt();
 
             switch (opcao) {
@@ -76,6 +77,7 @@ public class App {
                         System.out.println("Nome: " + user2.getNome());
                         System.out.println("Senha: " + user2.getSenha());
                     }
+                    opcao = 0;
 
                     break;
 

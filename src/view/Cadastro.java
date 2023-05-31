@@ -53,6 +53,7 @@ public class Cadastro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -71,11 +72,13 @@ public class Cadastro extends JFrame {
 		contentPane.add(motivoLabel);
 
 		assuntoTxt = new JTextField();
+		assuntoTxt.setBackground(new Color(240, 240, 240));
 		assuntoTxt.setColumns(10);
 		assuntoTxt.setBounds(105, 157, 223, 20);
 		contentPane.add(assuntoTxt);
 
 		JComboBox<String> motivoBox = new JComboBox<String>();
+		motivoBox.setBackground(new Color(240, 240, 240));
 		motivoBox.setMaximumRowCount(2);
 		motivoBox.setModel(new DefaultComboBoxModel(new String[] { "Reclamacao", "Sugestao" }));
 		motivoBox.setFont(new Font("SansSerif", Font.BOLD, 11));
@@ -100,10 +103,12 @@ public class Cadastro extends JFrame {
 		contentPane.add(mensagemLabel);
 
 		JTextArea mensagemTxt = new JTextArea();
+		mensagemTxt.setBackground(new Color(240, 240, 240));
 		mensagemTxt.setBounds(105, 214, 223, 79);
 		contentPane.add(mensagemTxt);
 
 		JButton enviarBtn = new JButton("ENVIAR");
+		enviarBtn.setBackground(new Color(240, 240, 240));
 		enviarBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
 
 		enviarBtn.addActionListener(new ActionListener() {
@@ -131,6 +136,7 @@ public class Cadastro extends JFrame {
 		contentPane.add(enviarBtn);
 		
 		JButton btnVoltar = new JButton("VOLTAR");
+		btnVoltar.setBackground(new Color(240, 240, 240));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Menu().setVisible(true);
