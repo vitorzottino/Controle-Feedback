@@ -1,4 +1,4 @@
-package connection;
+package br.com.fiap.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;

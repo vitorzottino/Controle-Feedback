@@ -1,4 +1,4 @@
-package repository;
+package br.com.fiap.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionPool;
-import model.User;
+import br.com.fiap.connection.ConnectionPool;
+import br.com.fiap.model.User;
 
 public class UserDAO {
 

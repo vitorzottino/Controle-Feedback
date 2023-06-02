@@ -1,10 +1,9 @@
-package lists;
+package br.com.fiap.lists;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-
-import model.Feedback;
+import br.com.fiap.model.Feedback;
 
 public class ListFb {
 

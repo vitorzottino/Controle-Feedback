@@ -1,6 +1,6 @@
-package model;
+package br.com.fiap.model;
 
-import util.CriptoSenha;
+import br.com.fiap.util.CriptoSenha;
 
 public class User {
     

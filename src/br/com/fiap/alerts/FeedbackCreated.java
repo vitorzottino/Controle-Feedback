@@ -1,4 +1,4 @@
-package alerts;
+package br.com.fiap.alerts;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import view.Menu;
+import br.com.fiap.view.Menu;
 
-public class UserCreated extends JFrame {
+public class FeedbackCreated extends JFrame {
 
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class UserCreated extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserCreated frame = new UserCreated();
+					FeedbackCreated frame = new FeedbackCreated();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class UserCreated extends JFrame {
 		});
 	}
 
-	public UserCreated() {
+	public FeedbackCreated() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 200, 200);
 		contentPane = new JPanel();

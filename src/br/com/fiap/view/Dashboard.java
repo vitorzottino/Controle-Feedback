@@ -1,4 +1,4 @@
-package view;
+package br.com.fiap.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -20,8 +20,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import model.Feedback;
-import repository.FeedbackDAO;
+import br.com.fiap.model.Feedback;
+import br.com.fiap.repository.FeedbackDAO;
+
 import javax.swing.border.LineBorder;
 import javax.swing.ListSelectionModel;
 import java.awt.SystemColor;
@@ -63,7 +64,7 @@ public class Dashboard extends JFrame {
 	}
 
 	public Dashboard() throws SQLException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/imgs/dashico.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/br/com/fiap/icon/dashico.png")));
 		setTitle("Feedbacks");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 724, 500);

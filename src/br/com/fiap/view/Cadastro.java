@@ -1,4 +1,4 @@
-package view;
+package br.com.fiap.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -18,10 +18,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import alerts.UserCreated;
-import model.Feedback;
-import repository.FeedbackDAO;
+import br.com.fiap.alerts.FeedbackCreated;
+import br.com.fiap.model.Feedback;
+import br.com.fiap.repository.FeedbackDAO;
+
 import java.awt.Toolkit;
+import java.awt.SystemColor;
 
 public class Cadastro extends JFrame {
 
@@ -46,9 +48,9 @@ public class Cadastro extends JFrame {
 		});
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	
 	public Cadastro() throws SQLException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Cadastro.class.getResource("/imgs/dashico.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/br/com/fiap/icon/dashico.png")));
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 500);
@@ -127,12 +129,12 @@ public class Cadastro extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					new UserCreated().setVisible(true);
+					new FeedbackCreated().setVisible(true);
 					dispose();
 				}
 			}
 		});
-		enviarBtn.setBounds(105, 370, 223, 23);
+		enviarBtn.setBounds(105, 380, 223, 23);
 		contentPane.add(enviarBtn);
 		
 		JButton btnVoltar = new JButton("VOLTAR");
@@ -144,8 +146,20 @@ public class Cadastro extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("SansSerif", Font.BOLD, 14));
-		btnVoltar.setBounds(105, 404, 223, 23);
+		btnVoltar.setBounds(105, 414, 223, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnLimpar = new JButton("LIMPAR");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				assuntoTxt.setText("");
+				mensagemTxt.setText("");
+			}
+		});
+		btnLimpar.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnLimpar.setBackground(SystemColor.menu);
+		btnLimpar.setBounds(105, 346, 223, 23);
+		contentPane.add(btnLimpar);
 
 	}
 }

@@ -1,4 +1,4 @@
-package view;
+package br.com.fiap.view;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -36,7 +36,7 @@ public class Menu extends JFrame {
 
 	
 	public Menu() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/imgs/dashico.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/br/com/fiap/icon/dashico.png")));
 		setTitle("Home");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 308, 272);

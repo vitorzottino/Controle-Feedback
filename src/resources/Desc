@@ -1,0 +1,9 @@
+Membros do Grupo:
+Enzo Fernandes - 93345
+Leonardo Cardoso - 93860	
+Vitor Zottino - 93360
+
+A solução foi pensada para que o usuario tenha acesso a uma area de visualição dos feedbacks postados
+e uma tela para que possa ser inserido um novo feedback na base de dados.
+
+Design Patterns utilizados: Java Beans - model e DAO - repository

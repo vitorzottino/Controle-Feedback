@@ -1,4 +1,4 @@
-package repository;
+package br.com.fiap.repository;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,8 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionPool;
-import model.Feedback;
+import br.com.fiap.connection.ConnectionPool;
+import br.com.fiap.model.Feedback;
 
 public class FeedbackDAO {
 

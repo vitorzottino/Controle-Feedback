@@ -1,13 +1,13 @@
-package app;
+package br.com.fiap.app;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import model.Feedback;
-import model.User;
-import repository.FeedbackDAO;
-import repository.UserDAO;
+import br.com.fiap.model.Feedback;
+import br.com.fiap.model.User;
+import br.com.fiap.repository.FeedbackDAO;
+import br.com.fiap.repository.UserDAO;
 
 public class App {
 
@@ -39,7 +39,7 @@ public class App {
                     System.out.println("Informe a mensagem do feedback");
                     input.nextLine();
                     newFeedback.setConteudo(input.nextLine());
-                    newFeedback.setStatus("0");
+                    newFeedback.setStatus("Aberto");
 
                     daoFb.insert(newFeedback);
                     break;
